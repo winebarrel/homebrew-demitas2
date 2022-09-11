@@ -5,21 +5,21 @@
 class Demitas2 < Formula
   desc "Wrapper for ecspresso that creates task definitions at run time."
   homepage "https://github.com/winebarrel/demitas2"
-  version "0.2.1"
+  version "0.3.0"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/winebarrel/demitas2/releases/download/v0.2.1/demitas2_0.2.1_darwin_arm64.tar.gz"
-      sha256 "4cd734a522c04cfde94fe8771b5a1253ec70360b1a212b75c44fa21686b54e86"
+    if Hardware::CPU.intel?
+      url "https://github.com/winebarrel/demitas2/releases/download/v0.3.0/demitas2_0.3.0_darwin_amd64.tar.gz"
+      sha256 "743793f1d8316e4a1b23d7ec2ffe4c8c4eb6c33d298dc29ab8dcdec0b86f3b71"
 
       def install
         bin.install 'dmts'
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/winebarrel/demitas2/releases/download/v0.2.1/demitas2_0.2.1_darwin_amd64.tar.gz"
-      sha256 "0ed5b0e92388b3cf85a52d3c0124d272fc999dde99c5262fb3a7161728118429"
+    if Hardware::CPU.arm?
+      url "https://github.com/winebarrel/demitas2/releases/download/v0.3.0/demitas2_0.3.0_darwin_arm64.tar.gz"
+      sha256 "51a57a82366e7d4dfe20d506852b01af58735a398c661e92ca19735c8d6b0f14"
 
       def install
         bin.install 'dmts'
@@ -28,17 +28,17 @@ class Demitas2 < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/winebarrel/demitas2/releases/download/v0.2.1/demitas2_0.2.1_linux_amd64.tar.gz"
-      sha256 "94265ca0bf2453661eb4930ce43116b8c2244ef81ab4e21f91e0a746722f5f01"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/winebarrel/demitas2/releases/download/v0.3.0/demitas2_0.3.0_linux_arm64.tar.gz"
+      sha256 "864833de1ec196450e6995553f6b0ae835c8c4fbd5791aae2eeaf55462e31cdf"
 
       def install
         bin.install 'dmts'
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/winebarrel/demitas2/releases/download/v0.2.1/demitas2_0.2.1_linux_arm64.tar.gz"
-      sha256 "c88fe5f13fe47ea88f349c803e9b63f010b243fa2b09c8415016df5c2c5caee3"
+    if Hardware::CPU.intel?
+      url "https://github.com/winebarrel/demitas2/releases/download/v0.3.0/demitas2_0.3.0_linux_amd64.tar.gz"
+      sha256 "b9b9d23c0f8679d1c7b6c18e3f91e9407ef2dadc548372b8af261781acbd0e9c"
 
       def install
         bin.install 'dmts'
